@@ -1,0 +1,74 @@
+body {
+    max-height: 100vh;
+    background: #2e353d;
+    display: flex;
+    flex-direction: column;
+}
+/* название игры + сообщения*/
+h1 {
+    text-align: center;
+    color: cornsilk;
+}
+.header {
+    height: 5%;
+}
+
+.main {
+    flex: 1 0 auto;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    width: 100%;
+}
+
+.footer {
+    margin-top: 5%;
+    flex: 0 0 auto;
+    height: 25%;
+}
+
+button {
+    width: 30vw;
+    height: 5vh;
+    padding: 1px;
+    margin: 1px;
+    color: white;
+    background: #007b32;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #009641;
+}
+
+button:active {
+    background: #9cfb02;
+    color: black;
+}
+
+#game {
+    border-collapse: collapse;
+}
+
+td {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #eee;
+}
+
+.food {
+    background: #00d021;
+}
+
+.snakeBody {
+    background: #e5e5e5;
+}
+
+#message {
+    color: orange;
+    font-size: 24px;
+}
