@@ -13,14 +13,16 @@ class Game {
      * @param {Snake} snake
      * @param {Menu} menu
      * @param {Food} food
+     * @param {Sound} sound
      */
-    init(settings, status, board, snake, menu, food) {
+    init(settings, status, board, snake, menu, food, sound) {
         this.settings = settings;
         this.status = status;
         this.board = board;
         this.snake = snake;
         this.menu = menu;
         this.food = food;
+        this.sound = sound;
     }
 
     /**
@@ -87,8 +89,10 @@ class Game {
             return;
         }
         if (this.board.isHeadOnFood()) {
+            this.sound.play('ate');
             this.snake.increaseBody();
             this.food.setNewFood();
+            this.upperLevel();
         }
         this.board.clearBoard();
         this.food.setFood();
@@ -154,5 +158,13 @@ class Game {
      */
     setMessage(text) {
         this.messageEl.innerHTML = `<h1>${text}</h1>`;
+    }
+
+    /**
+     * увеличивает сложность
+     * пока только скорость
+     */
+    upperLevel() {
+        this.settings.speed += 50;
     }
 }
