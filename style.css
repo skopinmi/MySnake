@@ -1,5 +1,5 @@
 body {
-    max-height: 100vh;
+    /* max-height: 70vh; */
     background: #2e353d;
     display: flex;
     flex-direction: column;
@@ -9,24 +9,26 @@ h1 {
     text-align: center;
     color: cornsilk;
 }
-.header {
+/* #header {
+    position: fixed;
+    flex: 1 1 auto;
     height: 5%;
-}
+} */
 
 .main {
     flex: 1 0 auto;
-    margin: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 70vh;
+    height: 60vh;
     width: 100%;
 }
 
 .footer {
-    margin-top: 5%;
-    flex: 0 0 auto;
-    height: 25%;
+    position: fixed;
+    margin-top: 75vh;
+    /* flex: 1 1 auto; */
+    height: 30vh;
 }
 
 button {
@@ -69,6 +71,28 @@ td {
 }
 
 #message {
+    position: absolute;
+    top:10%;
+    left:0;
+    bottom:0;
+    right:0;
+    width:100%;
+    height:100%;
+    z-index:998;
+    background-color: Black;
     color: orange;
     font-size: 24px;
+}
+
+.visibility{
+    visibility: hidden;
+}
+
+#videoPlayer {
+    position: fixed;
+    max-height: 70vh;
+    top: 20vh;
+    left: 10vw;
+    width:80vw;
+    z-index: 999;
 }

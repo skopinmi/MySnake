@@ -2,6 +2,8 @@ class Game {
     constructor() {
         this.tickIdentifier = null;
         this.messageEl = document.getElementById('message');
+        this.textMessageEl = document.getElementById('textMessage');
+        this.video = document.getElementById("videoPlayer");
     }
 
     /** 
@@ -39,6 +41,10 @@ class Game {
      * Метод запускает игру.
      */
     start() {
+        this.sound.play();
+        this.sound.pause();
+        this.video.play();
+        this.video.pause();
         if (this.status.isPaused()) {
             this.status.setPlaying();
             this.tickIdentifier = setInterval(this.doTick.bind(this), 1000 / this.settings.speed);
@@ -89,7 +95,8 @@ class Game {
             return;
         }
         if (this.board.isHeadOnFood()) {
-            this.sound.play('ate');
+            // this.sound.play('ate');
+            this.sound.play();
             this.snake.increaseBody();
             this.food.setNewFood();
             this.upperLevel();
@@ -124,6 +131,7 @@ class Game {
         if (this.board.isNextStepToWall(this.snake.body[0])) {
             clearInterval(this.tickIdentifier);
             this.setMessage('Вы проиграли');
+            this.makeVisibleMessage();
             return true;
         }
         return false;
@@ -157,7 +165,9 @@ class Game {
      * @param {string} text 
      */
     setMessage(text) {
-        this.messageEl.innerHTML = `<h1>${text}</h1>`;
+        this.textMessageEl.innerHTML = `${text}`;
+        this.makeVisibleMessage();
+        this.playVideoWin();
     }
 
     /**
@@ -166,5 +176,14 @@ class Game {
      */
     upperLevel() {
         this.settings.speed += 50;
+    }
+
+    playVideoWin() {
+        // let video = document.getElementById("videoPlayer");
+        this.video.play();
+    }
+
+    makeVisibleMessage() {
+        this.messageEl.classList.toggle('visibility');;
     }
 }

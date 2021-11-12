@@ -1,6 +1,6 @@
 class Sound {
     constructor() {  
-        this.sound = new Audio();
+        this.sound = new Audio('sound/ate.wav');
         this.possibleSounuds = ['ate', 'step', 'win', 'lose'];
     }
 
@@ -12,5 +12,11 @@ class Sound {
             this.sound.src = 'sound/ate.wav';
         }
         this.sound.play();
+    }
+    play() {
+        this.sound.play();
+    }
+    pause() {
+        this.sound.pause();
     }
 }
